@@ -10,15 +10,20 @@ const { SpecReporter } = require('jasmine-spec-reporter');
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
-    './src/**/*.spec.ts'
+    //'./src/**/*.spec.ts'
+    './src/appilication.spec.ts',
+    './src/TC001_TC004.spec.ts',
+    './src/TC005_TC008.spec.ts'
   ],
   capabilities: {
     browserName: 'chrome',
+      shardTestFiles: true,
+      maxInstances: 5,
       chromeOptions: {
         args: ['--disable-gpu', '--window-size=1920,1080'],
       },
   },
-  directConnect: true,
+  //directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
